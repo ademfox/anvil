@@ -2,7 +2,7 @@
   "name": "anvil",
   "version": "0.0.6",
   "description": "Anvil is a library full of useful tools for creating interactive experiences.",
-  "main": "dist/anvil.js",
+  "main": "dist/Anvil.js",
   "scripts": {
     "build": "tsc",
     "test": "jest"
