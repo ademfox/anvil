@@ -2,15 +2,15 @@ import {
   Angle,
   Num,
   Point,
-} from '../Anvil'
+} from '../Anvil';
 
 export class Vector2 {
 
-  public x: number = 0
-  public y: number = 0
+  public x: number = 0;
+  public y: number = 0;
 
   constructor(...args) {
-    this.setPoint(...args)
+    this.setPoint(...args);
     return this
   }
 
@@ -19,28 +19,29 @@ export class Vector2 {
       typeof x === 'number' &&
       typeof y === 'number'
     ) {
-      this.x = x
-      this.y = y
+      this.x = x;
+      this.y = y;
     } else if (typeof x === 'undefined') {
-      this.x = 0
-      this.y = 0
+      this.x = 0;
+      this.y = 0;
     } else {
-      this.equals(<Point>x)
+      this.equals(<Point>x);
     }
-    return this
+
+    return this;
   }
 
   public setMagnitude(mag: number): Vector2 {
     this
       .normalize()
-      .multiply(mag)
-    return this
+      .multiply(mag);
+    return this;
   }
 
   public equals(point: Point): Vector2 {
-    this.x = point.x
-    this.y = point.y
-    return this
+    this.x = point.x;
+    this.y = point.y;
+    return this;
   }
 
   public isEqualTo(point: Point): boolean {
@@ -48,100 +49,100 @@ export class Vector2 {
       this.x === point.x &&
       this.y === point.y
     ) {
-      return true
+      return true;
     }
-    return false
+    return false;
   }
 
   public round(to: number = 0): Vector2 {
     this.x = parseFloat(
       (this.x).toFixed(to)
-    )
+    );
     this.y = parseFloat(
       (this.y).toFixed(to)
-    )
-    return this
+    );
+    return this;
   }
 
   public clone(): Vector2 {
-    return Vector2.equals(this)
+    return Vector2.equals(this);
   }
 
   public getArray(): number[] {
-    return [this.x, this.y]
+    return [this.x, this.y];
   }
 
   public getString(): string {
-    return `x: ${this.x}, y: ${this.y}`
+    return `x: ${this.x}, y: ${this.y}`;
   }
 
   public average(): number {
-    return (Math.abs(this.x) + Math.abs(this.y)) / 2
+    return (Math.abs(this.x) + Math.abs(this.y)) / 2;
   }
 
   public absolute(): Vector2 {
-    this.x = Math.abs(this.x)
-    this.y = Math.abs(this.y)
-    return this
+    this.x = Math.abs(this.x);
+    this.y = Math.abs(this.y);
+    return this;
   }
 
   public add(point: Point): Vector2 {
-    this.x += point.x
-    this.y += point.y
-    return this
+    this.x += point.x;
+    this.y += point.y;
+    return this;
   }
 
   public addX(point: number | Point): Vector2 {
     if (typeof point === 'number') {
-      this.x += point
+      this.x += point;
     } else {
-      this.x += point.x
+      this.x += point.x;
     }
-    return this
+    return this;
   }
 
   public addY(point: number | Point): Vector2 {
     if (typeof point === 'number') {
-      this.y += point
+      this.y += point;
     } else {
-      this.y += point.x
+      this.y += point.x;
     }
-    return this
+    return this;
   }
 
   public subtract(point: Point): Vector2 {
-    this.x -= point.x
-    this.y -= point.y
-    return this
+    this.x -= point.x;
+    this.y -= point.y;
+    return this;
   }
 
   public subtractX(point: number | Point): Vector2 {
     if (typeof point === 'number') {
-      this.x -= point
+      this.x -= point;
     } else {
-      this.x -= point.x
+      this.x -= point.x;
     }
-    return this
+    return this;
   }
 
   public subtractY(point: number | Point): Vector2 {
     if (typeof point === 'number') {
-      this.y -= point
+      this.y -= point;
     } else {
-      this.y += point.x
+      this.y += point.x;
     }
-    return this
+    return this;
   }
 
   public multiply(by: number): Vector2 {
-    this.x *= by
-    this.y *= by
-    return this
+    this.x *= by;
+    this.y *= by;
+    return this;
   }
 
   public multiplyX(by: number): Vector2 {
-    this.x *= by
-    return this
+    this.x *= by;
+    return this;
   }
 
   public multiplyY(by: number): Vector2 {

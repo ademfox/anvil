@@ -1,10 +1,6 @@
 export class Num {
 
   public static average(numbers: number[]): number {
-    if (typeof numbers === 'undefined') {
-      throw new Error('Core/Num.average: Expects an input');
-    }
-
     if (numbers.length < 2) {
       throw new Error('Core/Num.average: Expects at least 2 numbers in an arrays');
     }

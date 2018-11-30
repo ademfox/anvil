@@ -18,12 +18,12 @@ export interface AnimationProperties {
 
 export class Animation {
 
-  public alternate: boolean = false
-  public delay: number = 0 // Delay before animation starts.
-  public duration: number = 2 // In seconds.
+  public alternate: boolean = false;
+  public delay: number = 0; // Delay before animation starts.
+  public duration: number = 2; // In seconds.
 
   // States
-  public isActive: boolean = false
+  public isActive: boolean = false;
   public isAnimating: boolean = false
   public isPaused: boolean = false
   public isReversed: boolean = false
@@ -36,6 +36,7 @@ export class Animation {
 
   public timingFunction: Function = function (t): number { return t }
 
+  // Hooks
   public onAnimationStart: Function | Function[] = function (): void { }
   public onAnimationEnd: Function | Function[] = function (): void { }
   public onIterationEnd: Function | Function[] = function (): void { }
@@ -112,20 +113,20 @@ export class Animation {
       this.isAnimating == true &&
       this.isPaused === false
     ) {
-      this.clearSessions()
-      this.isAnimating = false
-      this.isPaused = true
-      this.pauseTime = Date.now()
+      this.clearSessions();
+      this.isAnimating = false;
+      this.isPaused = true;
+      this.pauseTime = Date.now();
     }
-    return this
+    return this;
   }
 
   public stop(): Animation {
     this
       .reset()
       .callOnAnimationEnd()
-      .callback()
-    return this
+      .callback();
+    return this;
   }
 
   public stopAndJumptToEnd(): Animation {
@@ -133,8 +134,8 @@ export class Animation {
       .reset()
       .goToEnd()
       .callOnAnimationEnd()
-      .callback()
-    return this
+      .callback();
+    return this;
   }
 
   public stopAndJumpToBeginning(): Animation {
@@ -142,8 +143,8 @@ export class Animation {
       .reset()
       .goToBeginning()
       .callOnAnimationEnd()
-      .callback()
-    return this
+      .callback();
+    return this;
   }
 
   // A
@@ -301,7 +302,7 @@ export class Animation {
   }
 
   private toggleDirection(): Animation {
-    this.currentDirection = this.currentDirection === true ? false : true
+    this.currentDirection = !this.currentDirection
     return this
   }
 
